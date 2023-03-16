@@ -10,7 +10,8 @@
     "watch-client" : "npm run start --prefix client",
     "watch-back" : "npm run watch --prefix back",
     "watch" : "npm run watch-back & npm run watch-client",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy" : "npm run build --prefix client && npm start --prefix back",
+    "test" : "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
