@@ -1,0 +1,26 @@
+{
+  "name": "nasaproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-client" : "npm install --prefix client",
+    "install-back" : "npm install --prefix back",
+    "install" : "npm run install-back && npm run install-client",
+    "watch-client" : "npm run start --prefix client",
+    "watch-back" : "npm run watch --prefix back",
+    "watch" : "npm run watch-back & npm run watch-client",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arrash03/nasa-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arrash03/nasa-project/issues"
+  },
+  "homepage": "https://github.com/Arrash03/nasa-project#readme"
+}
