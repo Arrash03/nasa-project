@@ -1,4 +1,4 @@
-const planets = require("../../model/planets/planets.model");
+const { planets } = require("../../model/planets/planets.model");
 
 function getAllPlanets(req, res){
   return res.status(200).json(planets);
