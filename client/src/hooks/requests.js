@@ -1,14 +1,18 @@
 const URL = "http://localhost:8000";
 
+// Load planets and return as JSON.
 async function httpGetPlanets() {
-  // Load planets and return as JSON.
   const response = await fetch(`${URL}/planets/`);
-  return await response.json()
+  return await response.json();
 }
 
+// Load launches, sort by flight number, and return as JSON.
 async function httpGetLaunches() {
-  // TODO: Once API is ready.
-  // Load launches, sort by flight number, and return as JSON.
+  const response = await fetch(`${URL}/launch`);
+  const jsonResponse =  await response.json();
+  return jsonResponse.sort((a, b) => {
+    return a.flightNumber - b.flightNumber;
+  });
 }
 
 async function httpSubmitLaunch(launch) {
