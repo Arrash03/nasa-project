@@ -1,5 +1,7 @@
 const { launches,
-        launchesCreator } = require("../../model/launch/launch.model");
+        launchesCreator,
+        isLaunchExist,
+        abortLaunchModel } = require("../../model/launch/launch.model");
 
 function getAllLaunches(req, res) {
   return res.status(200).json(launches);
@@ -29,7 +31,20 @@ function postLaunchData(req, res){
   }
 }
 
+function abortLaunchData(req, res){
+  const launchId = +req.params.id;
+  if (!isLaunchExist(launchId)){
+    return res.status(404).json({
+      error: "Launch by this id not found"
+    });
+  }
+
+  const launches = abortLaunchModel(launchId);
+  return res.status(200).json(launches);
+}
+
 module.exports = {
   getAllLaunches,
-  postLaunchData
+  postLaunchData,
+  abortLaunchData
 }

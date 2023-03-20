@@ -15,8 +15,27 @@ function launchesCreator(launch) {
   return launchCompleteForm
 }
 
+function isLaunchExist(launchId){
+  return launches.find((launch) => {
+    return launch.flightNumber === launchId;
+  });
+}
+
+function abortLaunchModel(launchId){
+  const specifiedLaunch = launches.find((launch) => {
+    return launch.flightNumber === launchId;
+  });
+
+  specifiedLaunch.upcoming = false;
+  specifiedLaunch.success = false;
+  
+  return launches;
+}
+
 
 module.exports = {
   launches,
-  launchesCreator
+  launchesCreator,
+  isLaunchExist,
+  abortLaunchModel
 };
